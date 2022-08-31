@@ -1,0 +1,24 @@
+{
+  "name": "browser-clipboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "prettier --write 'browser-clipboard/src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkmsaaaam/browser-clipboard.git"
+  },
+  "author": "tkmsaaaam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkmsaaaam/browser-clipboard/issues"
+  },
+  "homepage": "https://github.com/tkmsaaaam/browser-clipboard#readme",
+  "devDependencies": {
+    "@types/chrome": "^0.0.193",
+    "prettier": "^2.6.2"
+  }
+}

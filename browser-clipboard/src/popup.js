@@ -13,7 +13,6 @@
 		if (!e) return;
 		const text = document.getElementsByClassName(e.target.className)[0]
 			.textContent;
-		console.log(text);
 		navigator.clipboard.writeText(text).then();
 	});
 })();

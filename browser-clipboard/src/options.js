@@ -13,17 +13,20 @@ const setOption = () => {
 		})
 		.then();
 };
+const createField = value => {
+	return `<label><input type="text" value="${value}"></label><br>`;
+};
 const getOption = async () => {
 	const notes = await chrome.storage.sync.get();
 	const contents = notes['text'];
 	let html = '';
 	for (let i in contents) {
 		if (!contents[i]) continue;
-		html += `<label><input type="text" value="${contents[i]}"></label><br>`;
+		html += createField(contents[i]);
 	}
 	const diff = MAX - contents.length;
 	for (let j = 0; j < diff; j++) {
-		html += `<label><input type="text"></label><br>`;
+		html += createField('');
 	}
 	document.getElementById('form').insertAdjacentHTML('afterbegin', html);
 };

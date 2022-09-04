@@ -4,7 +4,7 @@
 	let html = '';
 	for (let i in contents) {
 		if (!contents[i]) continue;
-		html += `<a class="${i}">${contents[i]}</a><button class="${i}">copy</button><br>`;
+		html += `<button class="${i}">copy</button><a class="${i}">${contents[i]}</a><br>`;
 	}
 	document
 		.getElementsByClassName('text')[0]

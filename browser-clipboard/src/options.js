@@ -34,7 +34,6 @@ const getOption = async () => {
 (async () => {
 	await getOption();
 	document.getElementById('submit').addEventListener('click', e => {
-		e.preventDefault();
 		setOption();
 	});
 })();

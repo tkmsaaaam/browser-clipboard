@@ -1,18 +1,44 @@
-(async () => {
-	const data = await chrome.storage.sync.get();
-	const contents = data['text'];
+const MAX = 5;
+const setOption = () => {
+	const notes = document.getElementsByTagName('input');
+	const contents = [];
+	for (let i in notes) {
+		if (notes[i].value) {
+			contents.push(notes[i].value);
+		}
+	}
+	chrome.storage.sync
+		.set({
+			text: contents,
+		})
+		.then();
+};
+const createField = (value, i) => {
+	return `<label><input type="text" value="${value}" class="${i}"></label><button class="${i}">copy</button><br>`;
+};
+const getOption = async () => {
+	const notes = await chrome.storage.sync.get();
+	const contents = notes['text'];
 	let html = '';
 	for (let i in contents) {
 		if (!contents[i]) continue;
-		html += `<button class="${i}">copy</button><a class="${i}">${contents[i]}</a><br>`;
+		html += createField(contents[i], i);
 	}
-	document
-		.getElementsByClassName('text')[0]
-		.insertAdjacentHTML('afterbegin', html);
+	for (let j = contents.length; j < MAX; j++) {
+		html += createField('', j);
+	}
+	document.getElementById('form').insertAdjacentHTML('afterbegin', html);
+};
+
+(async () => {
+	await getOption();
 	document.addEventListener('click', e => {
-		if (!e) return;
-		const text = document.getElementsByClassName(e.target.className)[0]
-			.textContent;
-		navigator.clipboard.writeText(text).then();
+		if (e.target.id === 'submit') {
+			setOption();
+		} else {
+			setOption();
+			const text = document.getElementsByClassName(e.target.className)[0].value;
+			navigator.clipboard.writeText(text).then();
+		}
 	});
 })();

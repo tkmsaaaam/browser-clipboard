@@ -33,7 +33,7 @@ const getOption = async () => {
 
 (async () => {
 	await getOption();
-	document.getElementById('submit').addEventListener('click', e => {
-		setOption();
-	});
+	document
+		.getElementById('submit')
+		.addEventListener('click', () => setOption());
 })();

@@ -1,4 +1,3 @@
-const MAX = 5;
 const setOption = () => {
 	const notes = document.getElementsByTagName('input');
 	const contents = [];
@@ -18,15 +17,13 @@ const createField = (value, i) => {
 };
 const getOption = async () => {
 	const notes = await chrome.storage.sync.get();
-	const contents = notes['text'];
+	const contents = notes['text'] || [];
 	let html = '';
 	for (let i in contents) {
 		if (!contents[i]) continue;
 		html += createField(contents[i], i);
 	}
-	for (let j = contents.length; j < MAX; j++) {
-		html += createField('', j);
-	}
+	html += createField('', contents.length);
 	document.getElementById('form').insertAdjacentHTML('afterbegin', html);
 };
 

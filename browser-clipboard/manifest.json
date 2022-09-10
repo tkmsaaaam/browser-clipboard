@@ -6,8 +6,5 @@
   "action": {
     "default_title": "クリップボード",
     "default_popup": "src/popup.html"
-  },
-  "options_ui": {
-    "page": "src/options.html"
   }
 }

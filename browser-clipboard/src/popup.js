@@ -30,10 +30,8 @@ const getOption = async () => {
 (async () => {
 	await getOption();
 	document.addEventListener('click', e => {
-		if (e.target.id === 'submit') {
-			setOption();
-		} else {
-			setOption();
+		setOption();
+		if (e.target.id !== 'submit') {
 			const text = document.getElementsByClassName(e.target.className)[0].value;
 			navigator.clipboard.writeText(text).then();
 		}

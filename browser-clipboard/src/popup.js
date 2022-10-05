@@ -2,9 +2,7 @@ const setOption = () => {
 	const notes = document.getElementsByTagName('input');
 	const contents = [];
 	for (let i in notes) {
-		if (notes[i].value) {
-			contents.push(notes[i].value);
-		}
+		if (notes[i].value) contents.push(notes[i].value);
 	}
 	chrome.storage.sync
 		.set({

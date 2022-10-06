@@ -30,9 +30,9 @@ const getOption = async () => {
 	document.addEventListener('click', e => {
 		if (e.target.tagName !== 'BUTTON') return;
 		setOption();
-		if (e.target.id !== 'submit') {
-			const text = document.getElementsByClassName(e.target.className)[0].value;
-			navigator.clipboard.writeText(text).then();
-		}
+		if (e.target.id !== 'submit')
+			navigator.clipboard
+				.writeText(document.getElementsByClassName(e.target.className)[0].value)
+				.then();
 	});
 })();

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "outDir": "./browser-clipboard/build",
+    "allowJs": true,
+    "target": "ES2015",
+    "module": "commonjs",
+    "strict": true
+  },
+  "include": [
+    "./browser-clipboard/src/**/*"
+  ]
+}

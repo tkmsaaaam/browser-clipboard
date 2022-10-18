@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint browser-clipboard/src/**/*.ts && prettier --write 'browser-clipboard/src/**/*.ts'",
+    "compile": "npm run lint && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

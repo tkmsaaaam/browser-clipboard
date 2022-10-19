@@ -15,7 +15,7 @@ const createField = (value: string, i: number): string => {
 };
 const getOption = async (): Promise<void> => {
 	const notes = await chrome.storage.sync.get();
-	const contents = notes.text || [];
+	const contents: string[] = notes.text || [];
 	let html: string = '';
 	for (const i in contents) {
 		if (!contents[i]) continue;

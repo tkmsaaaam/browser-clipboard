@@ -17,9 +17,9 @@ const getOption = async (): Promise<void> => {
 	const notes = await chrome.storage.sync.get();
 	const contents: string[] = notes.text || [];
 	let html: string = '';
-	for (const i in contents) {
-		if (!contents[i]) continue;
-		html += createField(contents[i], parseInt(i));
+	for (const [i, content] of contents.entries()) {
+		if (!content) continue;
+		html += createField(content, i);
 	}
 	html += createField('', contents.length);
 	document.getElementById('form')?.insertAdjacentHTML('afterbegin', html);

@@ -27,7 +27,7 @@ const getOption = async (): Promise<void> => {
 
 (async (): Promise<void> => {
 	await getOption();
-	document.addEventListener('click', (e: MouseEvent) => {
+	document.addEventListener('click', (e: MouseEvent): void => {
 		const target = e.target as HTMLInputElement;
 		if (target.tagName !== 'BUTTON') return;
 		setOption();

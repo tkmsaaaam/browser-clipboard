@@ -18,8 +18,7 @@ const getOption = async (): Promise<void> => {
 	const contents: string[] = notes.text || [];
 	let html: string = '';
 	for (const [i, content] of contents.entries()) {
-		if (!content) continue;
-		html += createField(content, i);
+		if (content) html += createField(content, i);
 	}
 	html += createField('', contents.length);
 	document.getElementById('form')?.insertAdjacentHTML('afterbegin', html);

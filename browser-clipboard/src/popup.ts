@@ -14,7 +14,7 @@ const createField = (value: string, i: number): string => {
 	return `<label><input type="text" value="${value}" class="${i}"></label><button class="${i}">copy</button><br>`;
 };
 const getOption = async (): Promise<void> => {
-	const notes = await chrome.storage.sync.get();
+	const notes: { [p: string]: any } = await chrome.storage.sync.get();
 	const contents: string[] = notes.text || [];
 	let html: string = '';
 	for (const [i, content] of contents.entries()) {

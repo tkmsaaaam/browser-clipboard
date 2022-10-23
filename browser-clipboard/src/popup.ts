@@ -21,7 +21,8 @@ const getOption = async (): Promise<void> => {
 		if (content) html += createField(content, i);
 	}
 	html += createField('', contents.length);
-	document.getElementById('form')?.insertAdjacentHTML('afterbegin', html);
+	const form = document.getElementById('form') as HTMLFormElement;
+	if (form) form.insertAdjacentHTML('afterbegin', html);
 };
 
 (async (): Promise<void> => {
